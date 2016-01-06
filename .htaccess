@@ -1,0 +1,76 @@
+	<IfModule mod_rewrite.c>
+		RewriteEngine On
+
+
+		RewriteRule ^/?$ index.php [NC,L]
+		RewriteRule ^inicio/?$ index.php [NC,L]
+		RewriteRule ^login/?$ login.php [NC,L]
+		RewriteRule ^login/tryagain?$ login.php?error=tryagain [NC,L]
+
+		RewriteRule ^pesquisar/?$ index.php?p=pesquisar [NC,L]
+		RewriteRule ^orcamentos/?$ index.php?p=orcamentos [NC,L]
+		RewriteRule ^pedidos/?$ index.php?p=pedidos [NC,L]
+		RewriteRule ^produtos/?$ index.php?p=produtos [NC,L]
+		RewriteRule ^relatorios/?$ index.php?p=relatorios [NC,L]
+		RewriteRule ^mensageiro/?$ index.php?p=mensageiro [NC,L]
+		RewriteRule ^anotacoes/?$ index.php?p=anotacoes [NC,L]
+		RewriteRule ^controle/?$ index.php?p=controle [NC,L]
+		RewriteRule ^logout/?$ index.php?p=logout [NC,L]
+
+		RewriteRule ^clientes/?$ index.php?p=clientes&subp=listar_clientes [NC,L]
+		RewriteRule ^clientes/novo/?$ index.php?p=clientes&subp=novo_cliente [NC,L]
+		RewriteRule ^clientes/novo/2/([0-9]+)/?$ index.php?p=clientes&subp=novo_cliente-etapa2&id=$1 [NC,L]
+		RewriteRule ^clientes/novo/ok?$ index.php?p=clientes&msg=ok [NC,L]
+		RewriteRule ^clientes/ok?$ index.php?p=clientes&msg=ok [NC,L]
+		
+		RewriteRule ^fornecedores/?$ index.php?p=fornecedores&subp=listar_fornecedores [NC,L]
+		RewriteRule ^fornecedores/novo/?$ index.php?p=fornecedores&subp=novo_fornecedor [NC,L]
+		RewriteRule ^fornecedores/novo/ok?$ index.php?p=fornecedores&subp=ok [NC,L]
+		RewriteRule ^fornecedores/ok?$ index.php?p=fornecedores&subp=listar_fornecedores&msg=ok [NC,L]
+
+		RewriteRule ^pedido/entrada/?$ index.php?p=404 [NC,L]
+		RewriteRule ^pedido/pendente_pagamento/?$ index.php?p=404 [NC,L]
+		RewriteRule ^pedido/concluido/?$ index.php?p=pedido_concluido [NC,L]
+
+		RewriteRule ^produto/listar/?$ index.php?p=produto_listar [NC,L]
+		RewriteRule ^produto/entrada_recente/?$ index.php?p=produto_entrada_recente [NC,L]
+		RewriteRule ^produto/pendente_preco/?$ index.php?p=produto_pendente_preco [NC,L]
+		RewriteRule ^produto/fora_de_estoque/?$ index.php?p=produto_fora_de_estoque [NC,L]
+		RewriteRule ^produto/inativo/?$ index.php?p=produto_inativo [NC,L]
+
+		RewriteRule ^logs/?$ index.php?p=controle&subp=logs [NC,L]
+		RewriteRule ^senha/?$ index.php?p=controle&subp=senha [NC,L]
+		RewriteRule ^usuarios/?$ index.php?p=controle&subp=usuarios [NC,L]
+		RewriteRule ^usuarios/novo/?$ index.php?p=controle&subp=novo_usuario [NC,L]
+		RewriteRule ^usuarios/novo/ok?$ index.php?p=controle&subp=usuarios&msg=ok [NC,L]
+		RewriteRule ^ok/?$ index.php?p=controle&subp=ok [NC,L]
+		RewriteRule ^acao/apagar_usuario/([0-9]+)/?$ pp/apagar_usuario.php?id=$1 [NC]
+
+		RewriteRule ^pesquisar/produtos/?$ index.php?p=pesquisar&subp=produtos&seek=$1 [NC]
+		RewriteRule ^pesquisar/clientes/?$ index.php?p=pesquisar&subp=clientes&seek=$1 [NC]
+		RewriteRule ^pesquisar/orcamentos/?$ index.php?p=pesquisar&subp=orcamentos&seek=$1 [NC]
+		RewriteRule ^pesquisar/pedidos/?$ index.php?p=pesquisar&subp=pedidos&seek=$1 [NC]
+
+		RewriteRule ^acao/apagar_cliente/([0-9]+)/?$ index.php?p=clientes&subp=apagar_cliente&id=$1 [NC]
+		RewriteRule ^acao/apagar_fornecedor/([0-9]+)/?$ index.php?p=fornecedores&subp=apagar_fornecedor&id=$1 [NC]
+		RewriteRule ^acao/apagar_usuario/([0-9]+)/?$ index.php?p=controle&subp=apagar_usuario&id=$1 [NC]
+		RewriteRule ^acao/mudar_permissao/([0-9]+)/?$ index.php?p=controle&subp=mudar_permissao&id=$1 [NC]
+		RewriteRule ^acao/resetar_senha/([0-9]+)/?$ index.php?p=controle&subp=resetar_senha&id=$1 [NC]
+		
+		RewriteRule ^page/?$ page/403.php [NC,L]
+		RewriteRule ^images/?$ page/403.php [NC,L]
+		RewriteRule ^css/?$ page/403.php [NC,L]
+		RewriteRule ^js/?$ page/403.php [NC,L]
+		RewriteRule ^pp/?$ page/403.php [NC,L]
+		RewriteRule ^subp/?$ page/403.php [NC,L]
+
+		RewriteRule ^pp/login?$ login.php [NC,L]
+		RewriteRule ^page/login?$ login.php [NC,L]
+		RewriteRule ^subp/login?$ login.php [NC,L]
+
+		RewriteRule ^avisar/([0-9]+)/?$ index.php?p=avisar_alguem&chave=$1 [NC]
+		RewriteRule ^enviar_email_ao_destinatario/([0-9]+)/?$ index.php?p=enviar_email&chave=$1 [NC]
+		RewriteRule ^marcarcomo/([a-z0-9-]+)/([0-9]+)/?$ index.php?p=gets&st=$1&chave=$2
+
+
+	</IfModule>
